@@ -1,8 +1,9 @@
-import Router from 'koa-router'
+import Router from 'koa-router';
+import Todo from './db.js';
 
 const router = new Router()
 
-const todos = []
+// const todos = []
 
 router.get('/', async ctx => {
   ctx.body = todos
