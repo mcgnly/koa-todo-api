@@ -1,4 +1,4 @@
 secret-keys.*
-./node-modules
-./coverage
-./nyc-output
+node-modules
+coverage
+.nyc-output
