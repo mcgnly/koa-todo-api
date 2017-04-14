@@ -3,6 +3,12 @@ import Sequelize from 'sequelize';
 
 var Todo = sequelize.define('task', 
   {
+    // id: {
+    //   primaryKey: true,
+    //   type: Sequelize.UUIDV4,
+    //   unique: true,
+    //   defaultValue: Sequelize.UUIDV4
+    // },
     title: {
       type: Sequelize.STRING,
       notEmpty: true
@@ -16,15 +22,11 @@ var Todo = sequelize.define('task',
     	defaultValue: Sequelize.NOW
     },
     user: {
-      type: Sequelize.UUID,
-      unique: true
+      type: Sequelize.UUID
     }
     // deadline: {
     // 	type: sequelize.DATE
     // },
-    // completed: {
-    // 	type: sequelize.DATE
-    // }
   }, 
   {
     freezeTableName: true, // Model tableName will be the same as the model name

@@ -11,13 +11,12 @@ var Users = sequelize.define('users',
     },
     name: {
       type: Sequelize.STRING,
-      unique: true,
       notEmpty: true
-    }
-    // password: {
-    //   type: Sequelize.STRING,
-    //   notEmpty: true
-    // }    
+    },
+    password: {
+      type: Sequelize.STRING,
+      notEmpty: true
+    }    
   }, 
   {
     freezeTableName: true, // Model tableName will be the same as the model name
