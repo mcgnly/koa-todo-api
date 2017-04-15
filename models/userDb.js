@@ -11,11 +11,13 @@ var Users = sequelize.define('users',
     },
     name: {
       type: Sequelize.STRING,
-      notEmpty: true
+      notEmpty: true,
+      allowNull:false
     },
     password: {
       type: Sequelize.STRING,
-      notEmpty: true
+      notEmpty: true,
+      allowNull:false
     }    
   }, 
   {
