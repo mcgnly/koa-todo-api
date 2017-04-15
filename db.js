@@ -5,7 +5,7 @@ var sequelize = new Sequelize(keys.dbName, keys.dbUsername, keys.dbPw, {
   host: 'localhost',
   dialect: 'postgres',
 
-  pool: {
+  pool: {//what does all this mean???
     max: 5,
     min: 0,
     idle: 10000
