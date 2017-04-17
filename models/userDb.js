@@ -1,5 +1,7 @@
 import sequelize from '../db.js';
 import Sequelize from 'sequelize';
+import Todo from './todoDb';
+
 
 var Users = sequelize.define('users', 
   {
@@ -27,6 +29,8 @@ var Users = sequelize.define('users',
     }
   }
 );
+
+Users.hasMany(Todo);
 
 Users.sync().then(function () {});
 
