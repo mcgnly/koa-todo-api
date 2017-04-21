@@ -1,6 +1,6 @@
 import Router from 'koa-router';
-import Todo from '../models/todoDb.js';
-import Users from '../models/userDb.js';
+// import Todo from '../models/todoDb.js';
+import { User, Todo } from '../models/userDb.js';
 
 const router = new Router();
 
@@ -19,9 +19,13 @@ router.post('/todos', async ctx => {
 		});
 
 	//update the user with the new todo
-	const asstdUser = await Users.findOne({id: body.userId});
+	const asstdUser = await User.findOne({id: body.userId});
 	console.log('asstdUser', asstdUser)
-	asstdUser.setTodos([createdTodo]);
+	console.log('------------------------')
+	asstdUser.addTodo(createdTodo).then((todo) => {
+		console.log('------- the user should have a todo now??', todo)
+
+	});
 	//the alternative method is to take the finished createdTodo with a .then or here with async
 		//and then setUser with the whole specific User object 
 		//by doing a where or a find to get it based on the id or sth
