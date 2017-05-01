@@ -9,7 +9,7 @@ export const app = new Koa();
 const router = new Router();
 
 app.use(bodyparser());
-app.use(cors());
+app.use(cors({methods: 'GET,HEAD,PUT,POST,DELETE,PATCH'}));
 
 app.use(async (ctx, next) => {
 	try {
