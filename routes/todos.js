@@ -34,12 +34,12 @@ router.post('/todos', async ctx => {
 	ctx.status = 201;//means created
 })
 
-router.patch('/todos/toggle', async ctx => {
+router.patch('/todos/:id/toggle', async ctx => {
 	const body = ctx.request.body;
-	const todo = await Todo.findOne({id:body.id});
+	const todo = await Todo.findOne({id:ctx.params.id});
 	console.log('toggling ', todo.name);
 	const toggledTodo = await Todo.upsert({
-		id:body.id,
+		id:ctx.params.id,
 		completed:!todo.completed
 	});
 	ctx.status = 200;//means OK
