@@ -19,18 +19,25 @@ router.get('/users', async ctx => {//really this is /todos/
   	ctx.body = JSON.stringify(users[0].all);
 })
 
-router.get('/user/:id', async ctx => {//really this is /todos/
-	const userId = ctx.params.id
+router.get('/user/:id/todos', async ctx => {//really this is /todos/
+	const userId = ctx.params.id;
 	const asstdUser = await User.findOne({id: userId});
-	// console.log('asstdUser', asstdUser)
 	console.log('------------------------')
-	let titlesArray = [];
+	let todoArray = [];
 	let todos = await asstdUser.getTodos()
 	todos.forEach((item)=>{
-		titlesArray.push(item.dataValues.title);
+		let singleTodo = {
+			'id':item.dataValues.id,
+			'title':item.dataValues.title,
+			'date':item.dataValues.dateadded,
+			'completed':item.dataValues.completed
+		};
+		todoArray.push(singleTodo);
 	})
-	console.log('------- the user should have a todo now??', titlesArray)
-	ctx.body = {"todos":titlesArray};
+	ctx.body = {
+		"user":ctx.params.id,
+		"todos":todoArray
+	};
 
 		// ctx.status = 200;
 })

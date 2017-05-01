@@ -4,10 +4,10 @@ import { User, Todo } from '../models/userDb.js';
 
 const router = new Router();
 
-router.get('/todos', async ctx => {
-	const todos = await Todo.findAll();
-  	ctx.body = JSON.stringify(todos[0].all);
-})
+// router.get('/todos', async ctx => {
+// 	const todos = await Todo.findAll();
+//   	ctx.body = JSON.stringify(todos[0].all);
+// })
 
 router.post('/todos', async ctx => {
 	const {body} = ctx.request;
